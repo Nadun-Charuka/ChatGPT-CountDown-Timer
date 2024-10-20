@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #243B55, #141E30);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .bubble-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(background.jpg) no-repeat center center fixed;
+    /* background: linear-gradient(45deg, #7f7fd5, #86a8e7, #91eae4); */
+    z-index: -2;
+    /* move speed */
+    animation: gradientShift 100s infinite ease-in-out;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .container {
+    margin: 10%;
+    
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .main-title {
+    font-size: 38px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  
+  .countdown-container {
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    width: 70px;
+    padding: 12px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+  }
+  
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  button {
+    background-color: #00e1ff;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 225, 255, 0.3);
+  }
+  
+  button:hover {
+    background-color: #00bfff;
+    transform: translateY(-5px);
+  }
+  
+  .display-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  
+  #countdownDisplay {
+    font-size: 64px;
+    font-weight: bold;
+    color: #defee6;
+    letter-spacing: 2px;
+  }
+  
+  #countdownDisplay.red {
+    color: rgb(249, 160, 160);
+  }
+  
+  .bubble-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  .bubble {
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    position: absolute;
+    animation: rise 10s infinite ease-in-out;
+  }
+  
+  @keyframes rise {
+    0% { bottom: 0; transform: scale(0.5); }
+    50% { transform: scale(1.2); }
+    100% { bottom: 100vh; opacity: 0; }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .main-title {
+      font-size: 32px;
+    }
+  
+    input {
+      width: 50px;
+    }
+  
+    #countdownDisplay {
+      font-size: 48px;
+    }
+  }
+  
